@@ -1,0 +1,202 @@
+/* ═══════════════════════════════════════════════════════════════════
+   theme-m7.css — Slate · Institutional Formal
+   Navy & parchment · zero radius · double rules · small-caps serif ·
+   table-like stats with column rules · thick navy top bar.
+   Vibe: law firm, chartered accountants, old-money consulting.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary: #1e3a6e;                /* institutional navy */
+  --primary-dark: #16294f;
+  --primary-light: #eef2f9;
+  --primary-rgb: 30, 58, 110;
+  --accent: #25d366;
+  --accent-rgb: 37, 211, 102;
+
+  --bg: #fdfcfa;
+  --bg-soft: #f5f4f0;
+  --bg-section: #f6f5f1;
+  --bg-deep: #101d38;
+
+  --text: #1a2233;
+  --text-muted: #4e576b;
+  --text-light: #8b93a5;
+
+  --border: #d9d7cf;
+  --border-soft: #e9e7e0;
+
+  --radius-sm: 0px;
+  --radius: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+
+  --shadow-sm: none;
+  --shadow: 0 2px 8px rgba(26, 34, 51, .06);
+  --shadow-lg: 0 16px 36px rgba(26, 34, 51, .09);
+  --shadow-xl: 0 26px 54px rgba(26, 34, 51, .12);
+  --shadow-brand: none;
+
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Libre Baskerville', 'Georgia', serif;
+}
+
+/* headings: serif with double underline rule */
+.ms-h2 { font-weight: 700; letter-spacing: 0; font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.25; }
+.ms-section-header { padding-bottom: 22px; border-bottom: 3px double var(--border); }
+.ms-hero-title { font-weight: 700; font-size: clamp(2.1rem, 4.8vw, 3.4rem); line-height: 1.16; }
+
+/* eyebrow: small caps, no chip */
+.ms-eyebrow {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--primary);
+  letter-spacing: .3em;
+  font-size: .68rem;
+  font-weight: 600;
+}
+.ms-eyebrow::before {
+  width: 26px; height: 2px;
+  border-radius: 0;
+  animation: none;
+  box-shadow: none;
+}
+
+/* header: thick navy crown bar */
+.ms-header { border-top: 6px solid var(--primary); box-shadow: none; border-bottom: 1px solid var(--border); }
+.ms-brand-name { font-family: var(--font-heading); font-weight: 700; }
+.ms-brand-tagline { letter-spacing: .2em; text-transform: uppercase; font-size: .6rem; }
+.ms-nav-link {
+  background: none !important;
+  border-radius: 0;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.ms-nav-link:hover, .ms-nav-link.active { color: var(--primary); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+.ms-nav-link::after { display: none; }
+
+/* buttons: square institutional */
+.ms-btn { border-radius: 0; font-weight: 600; letter-spacing: .04em; }
+.ms-btn-primary { box-shadow: none; }
+.ms-btn-primary:hover { transform: none; background: var(--primary-dark); box-shadow: none; }
+.ms-btn-outline { border: 1px solid var(--primary); color: var(--primary); }
+.ms-btn-outline:hover { background: var(--primary); color: #fff; }
+
+/* hero: parchment, quiet */
+.ms-hero { background: var(--bg-soft); padding: 100px 0 88px; border-bottom: 1px solid var(--border); }
+.ms-hero::before, .ms-hero::after { display: none; }
+.ms-hero-img { border-radius: 0; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+.ms-hero--split .ms-hero-media::before { display: none; }
+.ms-hero--split .ms-hero-media::after { display: none; }
+
+/* features: square panels, small caps titles */
+.ms-feature {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  box-shadow: none;
+}
+.ms-feature:hover { transform: none; box-shadow: var(--shadow-lg); border-color: var(--primary); }
+.ms-feature-icon { background: var(--primary-light); border-radius: 0; color: var(--primary); }
+.ms-feature-title { font-family: var(--font-heading); font-size: 1rem; }
+
+/* services */
+.ms-service { border: 1px solid var(--border); border-radius: 0; box-shadow: none; }
+.ms-service:hover { transform: none; box-shadow: var(--shadow-lg); border-color: var(--primary); }
+.ms-service-img { border-radius: 0; }
+.ms-service-title { font-family: var(--font-heading); }
+.ms-service-price { border-radius: 0; background: var(--primary-light); color: var(--primary); }
+
+/* steps: docket numbering */
+.ms-step { background: var(--bg); border: 1px solid var(--border); border-radius: 0; box-shadow: none; text-align: left; }
+.ms-step:hover { transform: none; box-shadow: none; border-color: var(--primary); }
+.ms-step-num {
+  background: var(--primary);
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--font-heading);
+  margin-left: 0;
+}
+.ms-step-icon { display: none; }
+.ms-step-title { font-family: var(--font-heading); font-size: 1rem; }
+
+/* stats: ledger table */
+.ms-stats-grid {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-top: 3px double var(--primary);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 40px 0;
+  gap: 0;
+}
+.ms-stat { border-left: 1px solid var(--border); }
+.ms-stat:first-child { border-left: 0; }
+.ms-stat-num { color: var(--primary); font-family: var(--font-heading); }
+.ms-stat-label { color: var(--text-muted); text-transform: uppercase; letter-spacing: .16em; font-size: .68rem; }
+
+/* testimonials: attestation cards */
+.ms-testimonial { border: 1px solid var(--border); border-radius: 0; box-shadow: none; background: var(--bg); }
+.ms-testimonial:hover { transform: none; box-shadow: var(--shadow); }
+.ms-testimonial::before { color: rgba(var(--primary-rgb), .2); font-family: var(--font-heading); }
+.ms-testimonial-text { font-family: var(--font-heading); font-style: italic; font-size: .98rem; line-height: 1.75; }
+.ms-stars { color: var(--primary); }
+.ms-avatar { border-radius: 0; }
+
+/* pricing */
+.ms-pricing-card { border: 1px solid var(--border); border-radius: 0; box-shadow: none; }
+.ms-pricing-card--featured { border: 1px solid var(--primary); border-top: 6px solid var(--primary); transform: none; box-shadow: var(--shadow-lg); }
+.ms-pricing-badge { border-radius: 0; letter-spacing: .16em; text-transform: uppercase; }
+.ms-pricing-name, .ms-pricing-price { font-family: var(--font-heading); }
+
+/* team: formal portraits */
+.ms-team-card { border: 1px solid var(--border); border-radius: 0; box-shadow: none; }
+.ms-team-photo { border-radius: 0; }
+.ms-team-name { font-family: var(--font-heading); }
+.ms-team-role { text-transform: uppercase; letter-spacing: .16em; font-size: .66rem; color: var(--primary); }
+
+/* faq: filing rows */
+.ms-faq-item { background: none; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; box-shadow: none; }
+.ms-faq-item:first-child { border-top: 1px solid var(--border); }
+.ms-faq-item.open { box-shadow: none; }
+.ms-faq-q { font-family: var(--font-heading); font-size: 1rem; }
+.ms-faq-icon { border-radius: 0; border: 1px solid var(--border); background: none; color: var(--primary); }
+.ms-faq-item.open .ms-faq-icon { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+/* CTA: navy chamber */
+.ms-cta, .ms-cta--primary, .ms-cta--dark {
+  background: var(--bg-deep);
+  border-radius: 0;
+  border-top: 3px double rgba(255,255,255,.3);
+  border-bottom: 3px double rgba(255,255,255,.3);
+}
+.ms-cta .ms-h2--light { font-family: var(--font-heading); }
+.ms-cta .ms-btn-light { border-radius: 0; }
+.ms-cta .ms-btn-outline-light { border-radius: 0; }
+
+/* about: framed portrait */
+.ms-about-img, .ms-about-placeholder { border-radius: 0; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+.ms-about-media::before { border: 1px solid var(--border); background: none; border-radius: 0; }
+.ms-check { border-radius: 0; }
+.ms-checklist li { border-bottom: 1px dotted var(--border); padding-bottom: 12px; }
+
+/* gallery / blog */
+.ms-gallery-item { border-radius: 0; border: 1px solid var(--border); }
+.ms-blog-card { border-radius: 0; border: 1px solid var(--border); box-shadow: none; }
+.ms-blog-card:hover { transform: none; box-shadow: var(--shadow-lg); }
+.ms-blog-title { font-family: var(--font-heading); }
+
+/* footer: navy with serif */
+.ms-footer { background: var(--bg-deep); border-top: 6px solid var(--primary); }
+.ms-footer-brand-name { font-family: var(--font-heading); }
+.ms-footer-col-title { letter-spacing: .22em; font-size: .66rem; }
+.ms-footer-links a:hover { text-decoration: underline; }
+.ms-social { border-radius: 0; }
+
+/* area chips */
+.ms-area-chip { border-radius: 0; border: 1px solid var(--border); background: var(--bg); font-size: .78rem; }
+.ms-area-chip:hover { border-color: var(--primary); color: var(--primary); transform: none; }
